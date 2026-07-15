@@ -31,14 +31,23 @@ test('TC-1 - Verify success create new employee with valid data', async ({ page 
   
   await dashboardPage.navigateToEmployeeList();
   await employeePage.clickAddEmployee();
-  
   await employeePage.fillEmployeeDetails({
     identityType: '2',
-    identificationNumber: '821023918',
+    identificationNumber: '8210293918',
     firstName,
     lastName,
-    permitType: '2'
+    permitType: '0',
+    // birthDate: '01/01/2000',
+    // nationality: 'Indonesia',
+    // martialStatus: 'Single',
+    // donation: '1',
+    // extraDonation: '1',
+    // nextOfKin: 'Next of Kin',
+    // race: 'Race',
+    // religion: 'Religion',
+    // email: `${firstName}.${lastName}@example.com`,
   });
+  await employeePage.clickContinueButton();
   
   // The rest of the commented code remains commented/unused as in the original test.
 });
