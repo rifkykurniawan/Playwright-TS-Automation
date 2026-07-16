@@ -19,7 +19,8 @@ function generateUniqueNames() {
   const suffix = Math.floor(1000 + Math.random() * 9000);
   return {
     firstName: `Frista${suffix}`,
-    lastName: `Joe${suffix}`
+    lastName: `Joe${suffix}`,
+    identificationNumber: `${suffix}`
   };
 }
 
@@ -27,13 +28,13 @@ test('TC-1 - Verify success create new employee with valid data', async ({ page 
   const dashboardPage = new DashboardPage(page);
   const employeePage = new EmployeePage(page);
 
-  const { firstName, lastName } = generateUniqueNames();
+  const { firstName, lastName, identificationNumber } = generateUniqueNames();
   
   await dashboardPage.navigateToEmployeeList();
   await employeePage.clickAddEmployee();
   await employeePage.fillEmployeeDetails({
     identityType: '2',
-    identificationNumber: '8210293918',
+    identificationNumber,
     firstName,
     lastName,
     permitType: '0',
@@ -51,3 +52,5 @@ test('TC-1 - Verify success create new employee with valid data', async ({ page 
   
   // The rest of the commented code remains commented/unused as in the original test.
 });
+
+

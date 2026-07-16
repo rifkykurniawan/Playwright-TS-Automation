@@ -3,6 +3,7 @@
 This project contains automated end-to-end tests for HRM Labs application using Playwright with TypeScript.
 
 ## Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Project Setup](#project-setup)
 - [Running Tests](#running-tests)
@@ -36,6 +37,7 @@ npm install
 ```
 
 This installs:
+
 - `@playwright/test` - Playwright testing framework
 - `@types/node` - TypeScript definitions for Node.js
 - `dotenv` - Environment variable management
@@ -71,21 +73,31 @@ npx playwright test
 ### Run Tests in Specific Mode
 
 #### Headed Mode (see browser)
+
 ```bash
 npx playwright test --headed
 ```
 
 #### Debug Mode (step through tests)
+
 ```bash
 npx playwright test --debug
 ```
 
 #### Run Specific Test File
+
 ```bash
 npx playwright test tests/TestCases.spec.ts
 ```
 
+#### Run With 1 Worker and 1 Browser
+
+```bash
+npx playwright test --project=firefox --workers=1
+```
+
 #### Run Tests in Specific Browser
+
 ```bash
 npx playwright test --project=chromium
 npx playwright test --project=firefox
@@ -129,7 +141,7 @@ The HTML report is stored in: `./playwright-report/`
 The report format is configured in `playwright.config.ts`:
 
 ```typescript
-reporter: 'html'
+reporter: "html";
 ```
 
 You can also generate reports in other formats:
@@ -155,16 +167,19 @@ npx playwright test --reporter=list  // Console output
 ## Troubleshooting
 
 ### Tests Not Running
+
 - Ensure all dependencies are installed: `npm install`
 - Check that `.env` file exists and has correct credentials
 - Verify Node.js version: `node --version`
 
 ### Credentials Not Loading
+
 - Verify `.env` file is in the root directory
 - Ensure variables match exactly: `DOMAIN`, `USERNAMETEST`, `PASSWORD`
 - Restart your terminal after creating/modifying `.env`
 
 ### Report Not Displaying
+
 - Check that tests have completed
 - Ensure `playwright-report` directory exists
 - Try clearing report: `rm -rf playwright-report` (or `rmdir /s playwright-report` on Windows)

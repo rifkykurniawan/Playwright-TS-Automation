@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { Locator, Page, test } from '@playwright/test';
 
 export class LoginPage {
   readonly page: Page;
@@ -23,8 +23,18 @@ export class LoginPage {
     this.loginHeading = page.getByRole('heading', { name: 'Log in to your account' });
   }
 
+  async screenshot(name: string) {
+    await test.info().attach(name, {
+      body: await this.page.screenshot({
+        fullPage: true,
+      }),
+      contentType: 'image/png',
+    });
+  }
+
   async navigate() {
     await this.page.goto('https://v2.hrmlabs.com');
+    await this.page.waitForLoadState('domcontentloaded');
   }
 
   async fillCredentials(domain: string, username: string, password?: string) {
@@ -54,6 +64,7 @@ export class LoginPage {
 
   async clickLogin() {
     await this.loginButton.click();
+    await this.screenshot('clickLogin.png');
   }
 
   async clickOk() {
