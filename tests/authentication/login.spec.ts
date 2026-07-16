@@ -11,7 +11,7 @@ const invalidPassword = process.env.INVALIDPASSWORD!;
 const invalidUsername = process.env.INVALIDUSERNAME!;
 
 test.describe('authentication', () => {
-  test('TC-1 - Login with valid credentials', async ({ page }) => {
+  test('AUTH-001-Login-Login with valid credentials', async ({ page }) => {
     qase.id(1)
     const loginPage = new LoginPage(page);
     const dashboardPage = new DashboardPage(page);
@@ -20,7 +20,7 @@ test.describe('authentication', () => {
     await expect(dashboardPage.companyLogo).toBeVisible();
   });
   
-  test('TC-2 - Login with invalid password', async ({ page }) => {
+  test('AUTH-002-Login-Login with invalid password', async ({ page }) => {
     qase.id(9)
     const loginPage = new LoginPage(page);
   
@@ -32,7 +32,7 @@ test.describe('authentication', () => {
     await expect(loginPage.loginHeading).toBeVisible();
   });
   
-  test('TC-3 - Login with invalid username', async ({ page }) => {
+  test('AUTH-003-Login-Login with invalid username', async ({ page }) => {
     qase.id(10)
     const loginPage = new LoginPage(page);
   
@@ -44,7 +44,7 @@ test.describe('authentication', () => {
     await expect(loginPage.loginHeading).toBeVisible();
   });
   
-  test('TC-4 - Login with invalid username and password', async ({ page }) => {
+  test('AUTH-004-Login-Login with invalid username and password', async ({ page }) => {
     qase.id(11)
     const loginPage = new LoginPage(page);
   
@@ -56,7 +56,7 @@ test.describe('authentication', () => {
     await expect(loginPage.loginHeading).toBeVisible();
   });
   
-  test('TC-5 - Verify home page elements after successful login', async ({ page }) => {
+  test('AUTH-005-Login-Verify home page elements after successful login', async ({ page }) => {
     qase.id(12)
     const loginPage = new LoginPage(page);
     const dashboardPage = new DashboardPage(page);
@@ -69,7 +69,7 @@ test.describe('authentication', () => {
     await expect(dashboardPage.companyLogo).toBeVisible();
   });
   
-  test('TC-6 - Verify success log out', async ({ page }) => {
+  test('AUTH-006-Logout-Verify success log out', async ({ page }) => {
     qase.id(13)
     const loginPage = new LoginPage(page);
     const dashboardPage = new DashboardPage(page);

@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
   await expect(dashboardPage.companyLogo).toBeVisible();
 });
 
-test('TC-1 - Verify success log out', async ({ page }) => {
+test('AUTH-001-Logout-Verify success log out', async ({ page }) => {
   const dashboardPage = new DashboardPage(page);
 
   await dashboardPage.logout(true);

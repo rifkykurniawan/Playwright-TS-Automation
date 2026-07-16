@@ -24,7 +24,7 @@ function generateUniqueNames() {
   };
 }
 
-test('TC-1 - Verify success create new employee with valid data', async ({ page }) => {
+test('EMP-001-Create Employee-Verify success create new employee with valid data', async ({ page }) => {
   const dashboardPage = new DashboardPage(page);
   const employeePage = new EmployeePage(page);
 
